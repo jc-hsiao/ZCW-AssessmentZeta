@@ -4,6 +4,8 @@ import com.zipcodewilmington.assessment1.UnitTestingUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -31,11 +33,27 @@ public class ArrayUtilsTest {
 
         // When
         Integer[] actual = (Integer[]) ArrayUtils.removeValue(inputArray, valueToRemove);
+        //Integer[] actual = Arrays.copyOf(ArrayUtils.removeValue(inputArray, valueToRemove), ArrayUtils.removeValue(inputArray, valueToRemove).length, Integer[].class);
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
     }
 
+    /*
+    @Test
+    public void removeValueTest2() {
+        // Given
+        String valueToRemove = "a";
+        String[] expected = {"s","s","s","s","s","s"};
+        String[] inputArray = {"s","a","s","s","s","s","s"};
+
+        // When
+        //String[] actual = Arrays.copyOf(ArrayUtils.removeValue(inputArray, valueToRemove), ArrayUtils.removeValue(inputArray, valueToRemove).length, String[].class);
+
+        // Then
+        UnitTestingUtils.assertArrayEquality(expected, actual);
+    }
+    */
 
     @Test
     public void getMostCommonTest() {
