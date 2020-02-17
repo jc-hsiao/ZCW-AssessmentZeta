@@ -20,8 +20,8 @@ public class PetOwner {
         this.name = name;
         if(pets != null) {
             for (int i = 0; i < pets.length; i++) {
-                this.pets.add(pets[i]);
-                pets[i].setOwner(this);
+                this.pets.add(pets[i]);//add pets into roaster
+                pets[i].setOwner(this);//set the owner of this pets to current owner
             }
         }
 
@@ -65,8 +65,8 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the highest amongst all Pets in this class
      */
     public Integer getOldestPetAge() {
-        Pet youngestP = Collections.max(pets, Comparator.comparing(p -> p.getAge()));
-        return youngestP.getAge();
+        Pet oldestP = Collections.max(pets, Comparator.comparing(p -> p.getAge()));
+        return oldestP.getAge();
     }
 
 
@@ -100,6 +100,7 @@ public class PetOwner {
      */
     public Pet[] getPets() {
         //have to set this up since the remove test is checking if pets[0] is null
+        //otherwise it will say my array size is 0 and it can't even check if pets[0] is null.
         if(pets.size() == 0){
             pets.add(null);
         }
